@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Andwer Buttonのviewをこのclassで生成
 class Answer extends StatelessWidget {
 
   final Function selectHandler;
@@ -9,6 +10,7 @@ class Answer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       width: double.infinity,
       margin: EdgeInsets.all(20),

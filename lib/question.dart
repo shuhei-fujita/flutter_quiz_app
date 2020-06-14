@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Question textviewをこのclassで生成
 class Question extends StatelessWidget {
 
   // finalは一度値が代入されたら，変更不可
