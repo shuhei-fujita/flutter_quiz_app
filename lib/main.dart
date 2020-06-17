@@ -17,23 +17,38 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   var _questionIndex = 0;
+  var _totalScroe = 0;
 
   static const _questions = [
     {
       'questionText': 'What is your favorite color?',
-      'answers': ['Red', 'Blue', 'Yellow'],
+      'answers': [
+        {'text': 'Red', 'score': 10},
+        {'text': 'Blue', 'score': 5},
+        {'text': 'Yellow', 'score': 3}
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Dog', 'Cat', 'Tiger'],
+      'answers': [
+        {'text': 'Red', 'score': 10},
+        {'text': 'Blue', 'score': 5},
+        {'text': 'Yellow', 'score': 3}
+      ],
     },
     {
       'questionText': 'What\'s your favorite food?',
-      'answers': ['Ramen', 'Sushi', 'Soba'],
+      'answers': [
+        {'text': 'Red', 'score': 10},
+        {'text': 'Blue', 'score': 5},
+        {'text': 'Yellow', 'score': 3}
+      ],
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int scroe) {
+
+    _totalScroe += scroe;
 
     setState(() {
       _questionIndex = _questionIndex + 1;
@@ -55,7 +70,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text('Quiz App'),),
         body: _questionIndex < _questions.length
             ? Quiz(answerQuestion: _answerQuestion, questionIndex: _questionIndex, questions: _questions,)
-            : Result(),
+            : Result(_totalScroe),
       ),
     );
   }
