@@ -59,7 +59,13 @@ class _MyAppState extends State<MyApp> {
     }else{
       print('No more questions!');
     }
+  }
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScroe = 0;
+    });
   }
 
   @override
@@ -70,7 +76,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text('Quiz App'),),
         body: _questionIndex < _questions.length
             ? Quiz(answerQuestion: _answerQuestion, questionIndex: _questionIndex, questions: _questions,)
-            : Result(_totalScroe),
+            : Result(_totalScroe, _resetQuiz),
       ),
     );
   }
